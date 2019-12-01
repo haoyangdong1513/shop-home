@@ -1,0 +1,30 @@
+1.DIV或者ifream布局。
+	.container 类用于固定宽度并支持响应式布局的容器。
+	.container-fluid 类用于 100% 宽度，占据全部视口（viewport）的容器。
+	栅格布局:
+		class的row和col进行布局:[表格布局]
+			col:
+				(1)一行只有12格
+				（2）col--数字
+				
+
+2.表单form:
+	input select radio,button,img,textarea,checkbox
+3.table:表格
+		列表展示，分页.
+bootstrap:
+	简洁、直观、强悍的前端开发框架，让web开发更迅速、简单。
+
+
+4.用于生产环境的下载:md-数字
+				     col-lg-数字
+				     col-xs-数字
+				     col-sm-数字
+				     col-md-数字
+	1.开发环境
+	2.测试环境
+	3.生产环境
+	矢量图标
+5.使用：
+	（1）导入JQ
+	(2)导入bootstrap

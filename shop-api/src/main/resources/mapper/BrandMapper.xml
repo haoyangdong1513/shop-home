@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.fh.dao.BrandDao">
+
+    <select id="queryBrandAll"  resultType="com.fh.model.BrandVo">
+        select * from t_brand
+    </select>
+
+    <select id="queryBrandByTypeId" parameterType="java.lang.Integer" resultType="com.fh.model.BrandVo">
+        select * from t_brand where BRANDTYPE = #{typeId}
+    </select>
+
+    <select id="queryCount" resultType="java.lang.Integer" parameterType="com.fh.model.BrandVo">
+        select count(*) from  t_brand  where brandtype = #{brandtype}
+    </select>
+
+    <select id="queryBrandPage" parameterType="com.fh.model.BrandVo" resultType="com.fh.model.BrandVo">
+            select * from t_brand where brandtype = #{brandtype} limit #{startIndex},#{pageSize}
+    </select>
+
+
+</mapper>

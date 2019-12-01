@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+    <mapper namespace="com.fh.dao.ProductDao">
+
+    <select id="queryCount" resultType="java.lang.Integer" parameterType="com.fh.model.ProductVo">
+            select count(tsp.id) from t_shop_product tsp left JOIN t_type_product ttp on tsp.id = ttp.product_id
+            where 1 =1
+             <if test="typeId != null">
+                 and ttp.type_id =#{typeId}
+             </if>
+             <if test="brandId != null">
+                 and tsp.brand_id= #{brandId}
+             </if>
+    </select>
+
+    <select id="queryProPage" parameterType="com.fh.model.ProductVo" resultType="com.fh.model.ProductVo">
+         select tsp.id,tsp.name,tsp.subtitle,tsp.main_img mianImg,tsp.sub_imgs subImgs,tsp.detail,tsp.price,tsp.stock,tsp.status,tsp.create_time createTime,tsp.update_time updateTime from t_shop_product tsp left JOIN t_type_product ttp on tsp.id = ttp.product_id
+          where 1 =1
+        <if test="typeId != null">
+            and ttp.type_id =#{typeId}
+        </if>
+        <if test="brandId != null">
+            and tsp.brand_id= #{brandId}
+        </if>
+         limit #{startIndex},#{pageSize}
+    </select>
+
+    <select id="queryById" parameterType="java.lang.Integer" resultType="com.fh.model.bean.ProductBean">
+        select  id,brand_id,name,subtitle,main_img mainImg,sub_imgs subImgs,detail,price,stock,status,create_time createTime,update_time updateTime from t_shop_product where id = #{id}
+    </select>
+
+</mapper>
